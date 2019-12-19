@@ -13,7 +13,7 @@ def index(request):
     'sliderData': Slider.objects.all()
 
 }
-  return render(request, 'pages/home.html', content)
+  return render(request, 'pages/index.html', content)
 
 def about(request):
   content = {
