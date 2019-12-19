@@ -1,0 +1,26 @@
+{% extends 'master/master.html'%}
+{% block content %}
+<section id="contentSection">
+    <h1> News Details </h1>
+    {% for news in newsDetailsData %}
+    <h3><a href="">{{ news.title }}</a></h3>
+    <span class="label label-danger">
+    {{ news.posted_date }}
+    </span>
+    <span class="label label-success">
+        Posted By {{ news.posted_by|title }}
+    </span>
+
+    <span class="label label-info">
+        Category {{ news.category|title }}
+    </span>
+
+    <img src="{{ news.image.url }}" class="img-responsive" alt="">
+    <p>
+        {{ news.description|safe }}
+    </p>
+    {% endfor %}
+
+    <div class="fb-comments" data-href="http://127.0.0.1:8000/news-details/{{news.slug_id}}" data-width="" data-numposts="5"></div>
+</section>
+{% endblock %}

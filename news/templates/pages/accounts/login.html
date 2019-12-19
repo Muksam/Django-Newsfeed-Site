@@ -1,0 +1,14 @@
+{% extends 'master/master.html'%}
+{% block content %}
+{% load crispy_forms_tags %}
+<section id="contentSection">
+    <h1>Login</h1>
+    <hr>
+    <form action="{% url 'login' %}"  method="post">
+         {% csrf_token %}
+         {{loginForm|crispy}}
+         <button class="btn btn-success">Login</button>
+    </form>
+    <a href="{% url 'password-reset' %} " class="btn btn-danger btn-sm">Password Reset</a>
+</section>
+{% endblock %}
