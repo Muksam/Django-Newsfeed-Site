@@ -47,4 +47,28 @@ class Slider(models.Model):
     class Meta:
          verbose_name_plural = 'Slider'
 
+class LNews(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    image = models.ImageField(blank=True, upload_to='news')
+    description = RichTextField()
+    status = models.BooleanField(default=0)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Latest News'
+
+
+
+class Contact(models.Model):
+    first_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150)
+    email = models.EmailField()
+    message = RichTextField()
+
+    def __str__(self):
+        return f'{self.first_name}{self.last_name}'
+
 

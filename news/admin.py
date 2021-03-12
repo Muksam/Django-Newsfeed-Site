@@ -46,3 +46,10 @@ class AdminSlider(admin.ModelAdmin):
 
 
 
+@admin.register(LNews)
+class AdminLNews(admin.ModelAdmin):
+    prepopulated_fields = {'slug':('title',)}
+
+
+
+admin.site.register(Contact)

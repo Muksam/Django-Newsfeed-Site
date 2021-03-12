@@ -1,0 +1,13 @@
+{% extends 'master/master.html'%}
+{% block content %}
+<section id="contentSection">
+    <h1>Latest News</h1>
+     {% for lnews in latestnewsData %}
+    <h3><a href="">{{ lnews.title }}</a></h3>
+    <img src="{{ lnews.image.url }}" class="img-responsive" alt="">
+    <p>
+        {{ lnews.description|safe }}
+    </p>
+    {% endfor %}
+</section>
+{% endblock %}

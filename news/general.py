@@ -6,9 +6,8 @@ def data(request):
     }
     return content
 
-
-def slid(request):
+def latest_news(request):
     content = {
-        'sliderData': Slider.objects.prefetch_related('slider_set').all()
+        'latestnewsData': LNews.objects.all(),
     }
     return content

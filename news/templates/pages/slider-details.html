@@ -1,18 +1,15 @@
 {% extends 'master/master.html'%}
 {% block content %}
 <section id="contentSection">
-    <h1> Slider Details </h1>
-    {% for news in sliderDetailsData %}
+    <h1>Slider Details</h1>
+
+    {% for slider in sliderData %}
     <h3><a href="">{{ slider.title }}</a></h3>
-    <span class="label label-danger">
-    {{ slider.posted_date }}
-    </span>
     <img src="{{ slider.image.url }}" class="img-responsive" alt="">
     <p>
-        {{ news.description|safe }}
+        {{ slider.description|safe }}
     </p>
     {% endfor %}
 
-    <div class="fb-comments" data-href="http://127.0.0.1:8000/news-details/{{news.slug_id}}" data-width="" data-numposts="5"></div>
 </section>
 {% endblock %}

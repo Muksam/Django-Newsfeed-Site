@@ -1,6 +1,38 @@
 {% extends 'master/master.html'%}
 {% block content %}
 <section id="contentSection">
-    <h1>About</h1>
-</section>
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="left_content">
+          <div class="contact_area">
+            <h2>About Us</h2>
+                  <img src="/media/news/about-us-banner-new.jpg" class="img-responsive" alt="">
+                  <p>
+                    it is likely to reach to unsupported or o <strong>Since it is a news service</strong> it has different updated internal and external links to facts represented as news with comments and opinions given by others on that topic,enabling<br> viewers to share their…show more content… n this way readers are aware of the latest news. The site is well designed and free, which make it one of the first choices for reading the news. But the coverage of technological significance is sparse unlike other sites which have expanded topics, with articles going into a little more in-depth; without becoming excessively technical... Antitrust coverage from Capitalism Magazine It's an online publication supporting capitalism that provides the public withimportant, efficient news, information and articles but not all at once.<br><br> Opinions and thoughts are freely written in this site with evidences and arguments supporting each thought .
+                    Although links are accurately attached to their addresses but sometimesld information which may be lost in the archive. Accordingly each article has it own date kept in the article itself benefiting the reader. A navigator bar is providing on the right to choose your choice .It contain advertisements about capitalism books and other technological ads.It covered alot of advertisement for all ads associated to the computer and other production technology advertising for hardware with a lot of anew production showing products at their bet proices with a summary about each poroduct.
+                  </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="latest_post">
+          <h2><span>Latest News</span></h2>
+          <div class="latest_post_container">
+            <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
+            <ul class="latest_postnav">
+              {% for lnews in latestnewsData %}
+                  <li>
+                    <div class="media"> <a href="{% url 'latestnews-details' lnews.slug %}" class="featured_img"> <img alt="" src="{{ lnews.image.url }}"></a>
+                       <h2><span><a href="{% url 'latestnews-details' lnews.slug %}" class="catg_title">{{ lnews.title }}</a></span></h2>
+                      <div class="media-body">  {{ lnews.description|slice:"255"|safe }} </div>
+                    </div>
+                  </li>
+              {% endfor %}
+            </ul>
+            <div id="next-button"><i class="fa  fa-chevron-down"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
